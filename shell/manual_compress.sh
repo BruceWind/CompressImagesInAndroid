@@ -50,6 +50,7 @@ compress_imgs_in_dir() {
         ### echo "$is_compressed_suc"
         if [ "$is_compressed_suc" -eq "0" ]; then
             echo "saved new file: $new_image_path"
+            git add $new_image_path
         else
             echo "Error: $original_img cant be compress."
         fi
@@ -73,6 +74,7 @@ compress_imgs_in_dir() {
         ##echo "$is_compressed_suc"
         if [ "$is_compressed_suc" -eq "0" ]; then
             echo "Saved new file: $new_image_path"
+            git add $new_image_path
         else
             echo "Error: $original_img cant be compress."
             rm $new_image_path
