@@ -1,6 +1,7 @@
 # @Author: bruce
 
-#!/bin/bash
+
+#!/bin/sh
 . install_app.sh
 . compressing_helper.sh
 . image_info_reader.sh

@@ -1,6 +1,6 @@
 # @Author: bruce
+#!/bin/sh
 
-#!/bin/bash
 command_exists() {
     # check if command exists and fail otherwise
     command -v "$1" >/dev/null 2>&1

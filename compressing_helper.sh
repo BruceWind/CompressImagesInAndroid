@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/sh
 compress_png(){
     optipng -silent -o9 $1 -out $2
 }
