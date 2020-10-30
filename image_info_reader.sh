@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 # compressing minium is 80k.
 compress_minimum=80*1024
 
 is_bigger_than_minimum() {
     filesize=$(wc -c "$1" | awk '{print $1}')
-
     if (($filesize >= $compress_minimum)); then
         return 0
     else
