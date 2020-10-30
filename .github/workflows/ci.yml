@@ -12,9 +12,14 @@ jobs:
       with: 
         lfs: true
 
-    - name: Begin building
+    - name: Prepare building
       run: |
         chmod +x ./*.sh   
         chmod +x ./res/*
+        bash ./install_apps_in_githubaction.sh
+
+
+    - name: Begin building
+      run: |
         bash ./manual_compress.sh
           
