@@ -80,7 +80,7 @@ compress_imgs_in_dir() {
         echo $divider
     done
 }
-
+cd ..
 declare -a dirs=$(find ./ -type d -name res)
 for res_dir in "${dirs[@]}"; do
     echo "found Dir : $res_dir"

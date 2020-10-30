@@ -14,13 +14,14 @@ jobs:
 
     - name: Prepare building
       run: |
-        chmod +x ./*.sh   
         chmod +x ./res/*  
         chmod +x ./shell/*
-        bash ./shell/install_apps_in_githubaction.sh
+        cd ./shell
+        bash ./install_apps_in_githubaction.sh
 
 
     - name: Begin building
       run: |
-        bash ./shell/manual_compress.sh
+        cd ./shell
+        bash ./manual_compress.sh
           
