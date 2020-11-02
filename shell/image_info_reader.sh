@@ -20,9 +20,10 @@ is_second_image_smaller_than_first_90_percent() {
     second_size=$(wc -c "$2" | awk '{print $1}')
     subtracted_value=$[$first_size - $second_size]
     if (($second_size >= $first_size)); then
-        echo " first_size: $first_size second_size : $second_size"
+        # echo "got size $second_size is unexpected."
         return 1
     elif (($subtracted_value <= ($first_size / 10))); then
+        # echo " first_size: $first_size second_size : $second_size"
         return 1
     else
         return 0

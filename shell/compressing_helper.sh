@@ -1,13 +1,13 @@
 #!/bin/sh
 compress_png(){
     fileinfo=$(file "$1")
-    echo $fileinfo
+    # echo $fileinfo
     optipng -silent -o9 $1 -out $2
 }
 
 
 compress_jpg(){
     fileinfo=$(file "$1")
-    echo $fileinfo
+    # echo $fileinfo
     guetzli --memlimit 2048 --quality 100 $1 $2
 }

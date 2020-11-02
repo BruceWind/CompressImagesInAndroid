@@ -3,7 +3,8 @@
 #!/bin/sh
 . install_app.sh
 . compressing_helper.sh
-. image_info_reader.sh
+. put_imgs_into_git.sh
+
 divider="---------------------------------------------------------------------"
 #### 1.check if Guetzli has been installed.
 # run function of installing apps.
@@ -18,30 +19,15 @@ is_img_need_tobe_compressed() {
     is_file_big_enough=$?
 
     if [[ -f "$2" ]]; then
-        echo "$2  $1 cant be compressed is due to it exists."
+        echo "$1 cant be compressed is due to $2 exists."
         return 1
     elif (($is_file_big_enough == 1)); then
-        echo "$1 cant be compressed is due to small.."
+        echo "$1 cant be compressed is due to small."
         return 1
     fi
     return 0
 }
 
-is_need_to_put_into_git() {
-    ## check if file exist.
-    if [ ! -f "$2" ]; then
-        echo return 1
-        ## check if file readable.
-        if [! -r "$2" ]; then
-            return 1
-        fi
-        is_second_image_smaller_than_first_90_percent $1 $2
-        if (($? == 0)); then
-            reuturn 0
-        fi
-    fi
-    return 1
-}
 
 ### give a parameter is directory. This funtion compress oprate all images blow the directory.
 compress_imgs_in_dir() {
@@ -66,20 +52,8 @@ compress_imgs_in_dir() {
 
         if [ "$is_compressed_suc" -eq "0" ]; then
             echo "saved new file: $new_image_path"
-            echo "pwd: $pwd"
 
-            is_need_to_put_into_git $original_img $new_image_path
-            if ((0 == $?)); then
-                ## del origin file and mv new file.
-                git add $new_image_path
-                echo "New file added into git."
-                git restore $original_img
-            else
-                echo "New file has not added into git."
-                git restore $original_img
-                rm $new_image_path
-            fi
-
+            put_new_into_git $original_img $new_image_path
         else
             echo "Error: $original_img cant be compress."
         fi
@@ -103,12 +77,7 @@ compress_imgs_in_dir() {
         ##echo "$is_compressed_suc"
         if [ "$is_compressed_suc" -eq "0" ]; then
             echo "Saved new file: $new_image_path"
-            is_need_to_put_into_git $original_img $new_image_path
-            if ((0 == $?)); then
-                ## del origin file and mv new file.
-                git add $new_image_path
-                echo "New file added into git."
-            fi
+            put_new_into_git $original_img $new_image_path
         else
             echo "Error: $original_img cant be compress."
             rm $new_image_path
@@ -116,8 +85,8 @@ compress_imgs_in_dir() {
         echo $divider
     done
 }
-cd ..
-declare -a dirs=$(find ./ -type d -name res)
+
+declare -a dirs=$(find ../ -type d -name res)
 for res_dir in "${dirs[@]}"; do
     echo "found Dir : $res_dir"
     echo $divider

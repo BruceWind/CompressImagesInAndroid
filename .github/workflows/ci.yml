@@ -24,11 +24,12 @@ jobs:
       run: |
         cd ./shell
         bash ./manual_compress.sh
-        cd ..
+
+    - name: Begin git-task
+      run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
         git commit -m "[action]:{action commit image file automatically.}"
-        git push
-
+        git push  # if you want to push it, please delete "#".
 
         ## TODO create a manual task to compress img. and create
