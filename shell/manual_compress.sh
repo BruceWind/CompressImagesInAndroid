@@ -1,6 +1,5 @@
 # @Author: bruce
 
-
 #!/bin/sh
 . install_app.sh
 . compressing_helper.sh
@@ -28,6 +27,22 @@ is_img_need_tobe_compressed() {
     return 0
 }
 
+is_need_to_put_into_git() {
+    ## check if file exist.
+    if [ ! -f "$2" ]; then
+        echo return 1
+        ## check if file readable.
+        if [! -r "$2" ]; then
+            return 1
+        fi
+        is_second_image_smaller_than_first_90_percent $1 $2
+        if (($? == 0)); then
+            reuturn 0
+        fi
+    fi
+    return 1
+}
+
 ### give a parameter is directory. This funtion compress oprate all images blow the directory.
 compress_imgs_in_dir() {
     ### got image list from "find" command
@@ -48,9 +63,23 @@ compress_imgs_in_dir() {
         compress_jpg $original_img $new_image_path
         is_compressed_suc=$?
         ### echo "$is_compressed_suc"
+
         if [ "$is_compressed_suc" -eq "0" ]; then
             echo "saved new file: $new_image_path"
-            git add $new_image_path
+            echo "pwd: $pwd"
+
+            is_need_to_put_into_git $original_img $new_image_path
+            if ((0 == $?)); then
+                ## del origin file and mv new file.
+                git add $new_image_path
+                echo "New file added into git."
+                git restore $original_img
+            else
+                echo "New file has not added into git."
+                git restore $original_img
+                rm $new_image_path
+            fi
+
         else
             echo "Error: $original_img cant be compress."
         fi
@@ -74,7 +103,12 @@ compress_imgs_in_dir() {
         ##echo "$is_compressed_suc"
         if [ "$is_compressed_suc" -eq "0" ]; then
             echo "Saved new file: $new_image_path"
-            git add $new_image_path
+            is_need_to_put_into_git $original_img $new_image_path
+            if ((0 == $?)); then
+                ## del origin file and mv new file.
+                git add $new_image_path
+                echo "New file added into git."
+            fi
         else
             echo "Error: $original_img cant be compress."
             rm $new_image_path

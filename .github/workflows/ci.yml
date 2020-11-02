@@ -29,3 +29,6 @@ jobs:
         git config user.email github-actions@github.com
         git commit -m "[action]:{action commit image file automatically.}"
         git push
+
+
+        ## TODO create a manual task to compress img. and create
