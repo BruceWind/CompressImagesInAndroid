@@ -3,6 +3,21 @@
 ## compressing minium is 80k.
 compress_minimum=80*1024
 
+# if file has already compresse,return 0
+is_image_has_already_compressed(){
+    grep -r "$1" ./compressed.ini
+    if (( 0 == $? )); then
+        return 0
+    fi
+    return 1
+}
+
+put_file_path_into_config_file(){
+    echo $1  >> "\n"
+    echo $1  >> ./compressed.ini 
+    git add ./compressed.ini
+}
+
 ## I dont think use this funtion to filter big file is a appropriate way. Might use find command to do everytgthing is better way.
 is_bigger_than_minimum() {
     filesize=$(wc -c "$1" | awk '{print $1}')

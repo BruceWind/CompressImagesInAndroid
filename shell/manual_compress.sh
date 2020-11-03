@@ -18,6 +18,12 @@ is_img_need_tobe_compressed() {
     is_bigger_than_minimum "$1"
     is_file_big_enough=$?
 
+    is_image_has_already_compressed "$1"
+    if ((0 == $?)); then
+        echo "file has already compressed."
+        return 1
+    fi
+
     if [[ -f "$2" ]]; then
         echo "$1 cant be compressed is due to $2 exists."
         return 1
@@ -27,7 +33,6 @@ is_img_need_tobe_compressed() {
     fi
     return 0
 }
-
 
 ### give a parameter is directory. This funtion compress oprate all images blow the directory.
 compress_imgs_in_dir() {

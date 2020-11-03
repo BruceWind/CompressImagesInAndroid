@@ -1,5 +1,9 @@
-name: CI
-on: push
+# this action just try to seek all file which can be compressed. You could modify cron. I recommand run that time is due to a co-works are sleep and server is free.
+name: Try-compressing-on-schedule
+on:
+  schedule:
+    # run this trying task at server's free time.
+    - cron:  '0 4 * * *' 
 
 jobs:
   linux:
@@ -23,13 +27,15 @@ jobs:
     - name: Begin building
       run: |
         cd ./shell
+        # use trying shell.
+        mv -f try_to_put_imgs_into_git.sh put_imgs_into_git.sh
         bash ./manual_compress.sh
 
     - name: Begin git-task
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git commit -m "[action]:{action commit image file automatically.}"
-        git push  # if you want to push it, please delete "#".
+        git commit -m "[action]:{action commit images automatically.}"
+        # git push  # if you want to push it, please delete "#".
 
         ## TODO create a manual task to compress img. and create

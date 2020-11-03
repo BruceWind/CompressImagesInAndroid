@@ -25,6 +25,7 @@ put_new_into_git() {
         mv -f $2 $1
         git add $1
         echo "added $1 as modified file into git."
+        put_file_path_into_config_file $1
         return 0
     else
         rm $2
