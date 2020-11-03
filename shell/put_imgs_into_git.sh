@@ -34,3 +34,11 @@ put_new_into_git() {
     # echo " $2 cant be added into git."
     return 1
 }
+push_if_need() {
+    if git diff-index --quiet HEAD --; then
+        exit 0
+    else
+        git commit -m "[action]:{action commit images automatically.}"
+        git push
+    fi
+}
