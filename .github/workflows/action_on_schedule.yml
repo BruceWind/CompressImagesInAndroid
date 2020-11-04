@@ -30,12 +30,3 @@ jobs:
         # use trying shell.
         mv -f try_to_put_imgs_into_git.sh put_imgs_into_git.sh
         bash ./manual_compress.sh
-
-    - name: Begin git-task
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git commit -m "[action]:{action commit images automatically.}"
-        # git push  # if you want to push it, please delete "#".
-
-        ## TODO create a manual task to compress img. and create
