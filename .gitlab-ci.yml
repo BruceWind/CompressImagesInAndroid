@@ -1,0 +1,21 @@
+# 定义 stages
+stages:
+  - Building
+  - out
+
+begin:
+  stage: Building
+  script:
+  -  apt-get update -qq && apt-get install -y optipng guetzli
+  - cd ./shell
+  - mv -f try_to_put_imgs_into_git.sh put_imgs_into_git.sh
+  - bash ./manual_compress.sh
+
+
+
+finsh:
+  stage: out
+  script:
+    - ls
+
+

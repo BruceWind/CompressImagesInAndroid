@@ -24,7 +24,6 @@ put_new_into_git() {
     is_second_image_smaller_than_first_90_percent $1 $2
     if (($? == 0)); then
         git add $2
-        git restore $1
         echo "added $2 into git."
         return 0
     else
