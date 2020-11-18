@@ -13,8 +13,8 @@ command_exists() {
 
 install_app_on_debian() {
     echo "Debian try to install $1."
-    sudo apt update
-    sudo apt install $1
+    apt update
+    apt install  -y $1
 }
 install_app_on_mac() {
     echo "This computer try to install $1."

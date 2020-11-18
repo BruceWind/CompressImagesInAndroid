@@ -17,7 +17,7 @@ jobs:
         chmod +x ./res/*  
         chmod +x ./shell/*
         cd ./shell
-        bash ./github_action_preparing.sh
+        bash ./ci_preparing.sh
 
 
     - name: Begin building

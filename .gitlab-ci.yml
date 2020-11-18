@@ -1,21 +1,25 @@
-# 定义 stages
+# define stages
 stages:
-  - Building
-  - out
+  - preparing
+  - building
+  - end
 
-begin:
-  stage: Building
+preparing:
+  stage: preparing
   script:
-  -  apt-get update -qq && apt-get install -y optipng guetzli
+  - apt install git-lfs
+
+building:
+  stage: building
+  script:
   - cd ./shell
+  - bash ./ci_preparing.sh
   - mv -f try_to_put_imgs_into_git.sh put_imgs_into_git.sh
   - bash ./manual_compress.sh
 
-
-
-finsh:
-  stage: out
+end:
+  stage: end
   script:
-    - ls
+    - exit 0
 
 
