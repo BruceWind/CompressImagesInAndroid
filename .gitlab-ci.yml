@@ -7,7 +7,7 @@ stages:
 preparing:
   stage: preparing
   script:
-  - apt install git-lfs
+  - apt-get update -qq && apt install git-lfs
 
 building:
   stage: building
