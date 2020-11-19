@@ -10,13 +10,13 @@ stages:
 preparing:
   stage: preparing
   script:
-    - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
-    - apt-get install -y git-lfs
-    - echo "$SSH_PRIVATE_KEY"
+    - ls
 
 building:
   stage: building
   script:
+    - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    - apt-get install -y git-lfs
     - git lfs install
     - git branch temp-branch
     - cd ./shell
@@ -31,7 +31,7 @@ building:
     - git commit -m "[action-auto]:{commit images automatically.}...[skip ci]"
     - git checkout master
     - git merge temp-branch
-    - bash ./git-push.sh git@gitlab.com:brucewind/compressimagesinandroid.git
+    - bash ./git-push.sh git@gitlab.com:brucewind/compressimagesinandroid.git master
     - fi
 
 end:
