@@ -7,6 +7,6 @@ Compress images of android project with Guetzli.
 - [ ] supporting FLIF format.
 
 # Remind 
-> 1. If you want to clone this repo, please install [git-lfs](https://git-lfs.github.com/) before cloning.
+> 1. before cloning this repo, you should install [git-lfs](https://git-lfs.github.com/) .
 
 > 2. If you are in China pls clone with proxy. I thought your network can't fetch files from github-lfs.
