@@ -9,3 +9,5 @@ It can work automatically on github-action so that you don't need to spent time 
 
 # Remind 
 > 1. Before cloning this repo, you should install [git-lfs](https://git-lfs.github.com/) .
+
+Furthermore, it may can work not only Android project but also ios project.
