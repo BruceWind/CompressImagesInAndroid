@@ -1,3 +1,5 @@
+[中文](https://github.com/BruceWind/CompressImagesInAndroid/blob/master/README_zh.md)
+
 # CompressingAndroidRes
 Compressing images by shell on github-action or github-ci. 
 
