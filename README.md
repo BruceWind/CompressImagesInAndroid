@@ -1,10 +1,12 @@
 # CompressingAndroidRes
-This repo do compressing images by shell on github-action. Due to the fact that compressing images are so slow on computer that I make this.
-It can work automatically on github-action so that you don't need to spent time to process it.
+Compressing images by shell on github-action or github-ci. 
+
+Due to the fact that compressing images are so slow on computers so that I make this.
+It can work automatically on github-action or gitlab-ci so that you don't need to spent time on compressing large images.
 
 - [x] compressing images that below res directory in shell script.
-- [x] compressing images in github-action and then commit new file.
-- [ ] compressing images in gitlab-ci and then commit new file.
+- [x] works on **github-action** ,and automatically commit new files.
+- [x] works on **gitlab-ci* ,and automatically commit new files.
 - [ ] supporting FLIF format.
 
 ### Remind 

@@ -1,7 +1,7 @@
-# @Author: bruce
-# Note: This shell script just print log, doesnt add any file into git.
-
 #!/bin/sh
+# @Author: bruce
+# Note: This file would like commit new files. And would not delete original image file.
+
 
 . image_info_reader.sh
 
@@ -13,18 +13,17 @@ put_new_into_git() {
         return 1
     fi
 
-    ## detect if file is readable.
+    ## detect if file readable.
     if [ ! -r "$2" ]; then
         # echo "$2 can't be read."
         rm $2
         return 1
     fi
 
-    ## detect if file is small enough.
+    ## detect if file small enough.
     is_second_image_smaller_than_first_90_percent $1 $2
     if (($? == 0)); then
-        #git add $2
-        #it restore $1
+        git add $2
         echo "added $2 into git."
         return 0
     else

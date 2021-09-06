@@ -1,6 +1,7 @@
+#!/bin/sh
+
 # @Author: bruce
 
-#!/bin/sh
 . install_app.sh
 . compressing_helper.sh
 . put_imgs_into_git.sh
