@@ -13,7 +13,7 @@ It can work automatically on github-action or gitlab-ci so that you don't need t
 - [ ] supporting FLIF format.
 
 
-On other hand, you still can run shell without CI or action task.
+On the other hand, you still can run shell without CI or action task.
 It may can work not only Android project but also ios project.
 
 ### Remind 
