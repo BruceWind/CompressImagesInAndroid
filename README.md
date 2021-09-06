@@ -12,7 +12,10 @@ It can work automatically on github-action or gitlab-ci so that you don't need t
 - [x] works on **gitlab-ci**, and automatically commit new files.
 - [ ] supporting FLIF format.
 
+
+On other hand, you still can run shell without CI or action task.
+It may can work not only Android project but also ios project.
+
 ### Remind 
 > 1. Before cloning this repo, you should install [git-lfs](https://git-lfs.github.com/) .
 
-***Furthermore***, it may can work not only Android project but also ios project.
