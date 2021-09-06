@@ -14,7 +14,7 @@ It can work automatically on github-action or gitlab-ci so that you don't need t
 
 
 On the other hand, you still can run shell without CI or action task.
-It may can work not only Android project but also ios project.
+Furthermore, it work not only in Android project but also ios project, or other projects.
 
 ### Remind 
 > 1. Before cloning this repo, you should install [git-lfs](https://git-lfs.github.com/) .
