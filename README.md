@@ -8,7 +8,7 @@ It can work automatically on github-action or gitlab-ci so that you don't need t
 
 - [x] compressing images that below res directory in shell script.
 - [x] works on **github-action** ,and automatically commit new files.
-- [x] works on **gitlab-ci* ,and automatically commit new files.
+- [x] works on **gitlab-ci**, and automatically commit new files.
 - [ ] supporting FLIF format.
 
 ### Remind 
