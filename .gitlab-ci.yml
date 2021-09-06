@@ -1,0 +1,41 @@
+variables:
+  SECRET: $SECRET
+
+# define stages
+stages:
+  - preparing
+  - building
+  - end
+
+preparing:
+  stage: preparing
+  script:
+    - ls
+
+building:
+  stage: building
+  script:
+    - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    - apt-get install -y git-lfs
+    - git lfs install
+    - git branch temp-branch
+    - cd ./shell
+    - bash ./ci_preparing.sh
+    - bash ./manual_compress.sh
+    - git config --global user.name "${GITLAB_USER_NAME}"
+    - git config --global user.email "${GITLAB_USER_EMAIL}"
+    - git status
+    - if git diff-index --quiet HEAD --; then
+    - echo "No changes"
+    - else
+    - git commit -m "[action-auto]:{commit images automatically.}...[skip ci]"
+    - git checkout master
+    - git merge temp-branch
+    - bash ./git-push.sh git@gitlab.com:brucewind/compressimagesinandroid.git master
+    - fi
+
+end:
+  stage: end
+  script:
+  - ls
+
