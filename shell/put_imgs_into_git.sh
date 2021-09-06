@@ -1,6 +1,5 @@
-# @Author: bruce
-
 #!/bin/sh
+# @Author: bruce
 
 . image_info_reader.sh
 

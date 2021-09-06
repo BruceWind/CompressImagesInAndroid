@@ -1,5 +1,5 @@
-# @Author: bruce
 #!/bin/sh
+# @Author: bruce
 
 command_exists() {
     # check if command exists and fail otherwise

@@ -1,5 +1,6 @@
-# @Author: bruce
 #!/bin/sh
+# @Author: bruce
+
 . install_app.sh
 try_install_app "guetzli"
 try_install_app "optipng"
