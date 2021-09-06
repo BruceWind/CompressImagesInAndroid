@@ -4,7 +4,7 @@ It can work automatically on github-action so that you don't need to spent time 
 
 - [x] compressing images that below res directory in shell script.
 - [x] compressing images in github-action and then commit new file.
-- [ ] compressing images in gitlab-ci and then commit new file.
+- [x] compressing images in gitlab-ci and then commit new file.
 - [ ] supporting FLIF format.
 
 ### Remind 

@@ -1,2 +1,4 @@
 .trash/
 test.sh
+*.iml
+*.xml

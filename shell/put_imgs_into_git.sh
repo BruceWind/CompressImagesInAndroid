@@ -4,7 +4,7 @@
 
 . image_info_reader.sh
 
-## if new file need to be put into git, I would put it though, else delete new file.
+## if new file need to be put into git, I will put it though. otherwise I would delete new file.
 put_new_into_git() {
     ## detect if file exist.
     if [ ! -f "$2" ]; then
