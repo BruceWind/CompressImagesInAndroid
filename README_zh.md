@@ -8,24 +8,24 @@
 
 有几种方法可以实现我们的目标。
 
-在我看来，其中最好的方法是在**服务器上创建一个自动任务来压缩它们。
-所以我做了这个。
-它可以在**github-action或gitlab-ci**上自动工作，这样你就不需要花时间去压缩大图片了。
+在我看来，其中最好的方法是在**服务器**上创建一个自动任务来压缩它们。
+所以我做了这个, 它可以在**github-action或gitlab-ci**上自动工作，这样你就不需要花时间去压缩大图片了。
 
 在这个 repo 中，有一个启动自动任务的例子，可以做到这一点。它可以在Gitlab CI和Github Actions中工作。
-
-
-
-![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_action_trigger.png)
-![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_action_commited.png)
-
-
-![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_of_gitlab_ci.png)
-
-
 因为图片压缩非常耗费性能与时间。所以，我做了个这个repo。
 它可以自动 或者手动触发 ci/acction任务进行压缩。
 
+
+### Github Actions
+在github上您需要手动触发任务，修改成功之后，会自动创建commit。
+![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_action_trigger.png)
+![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_action_commited.png)
+
+### Gitlab CI
+在Gitlab自动触发。
+![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_of_gitlab_ci.png)
+
+### 计划
 
 - [x] 目前只压缩res目录.
 - [x] **github-action**运行，并且自动commit.
