@@ -1,6 +1,9 @@
 # CompressingAndroidRes
 利用github-action/github-ci服务器资源去压缩项目大图. 
 ![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_action_trigger.png)
+![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_action_commited.png)
+
+
 ![](https://media.githubusercontent.com/media/BruceWind/CompressImagesInAndroid/master/screenshot_of_gitlab_ci.png)
 
 
