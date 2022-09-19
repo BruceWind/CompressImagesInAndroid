@@ -1,7 +1,7 @@
+#!/bin/sh
 # @Author: bruce
 # Note: This file would like commit new files. And would not delete original image file.
 
-#!/bin/sh
 
 . image_info_reader.sh
 

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "shell/ci_preparing.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1663553065336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1663553070951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,5 @@\n-<<<<<<< HEAD\n-# @Author: bruce\n #!/bin/sh\n-=======\n-#!/bin/sh\n # @Author: bruce\n . install_app.sh\n try_install_app \"guetzli\"\n try_install_app \"optipng\"\n"
+                }
+            ],
+            "date": 1663553065336,
+            "name": "Commit-0",
+            "content": "<<<<<<< HEAD\n# @Author: bruce\n#!/bin/sh\n=======\n#!/bin/sh\n# @Author: bruce\n. install_app.sh\ntry_install_app \"guetzli\"\ntry_install_app \"optipng\"\n\n## in gitlab-ci, you need to use apt to intall git-lfs,but in github action, installing is another way.\n\n\n## this line it supposed to avoid \ngit config --add core.filemode false"
+        }
+    ]
+}
